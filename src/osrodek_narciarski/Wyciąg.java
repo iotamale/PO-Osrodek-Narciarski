@@ -1,26 +1,33 @@
 package osrodek_narciarski;
 
-import czas.Czas;
-import kolejka.Kolejka;
-
 public class Wyciąg {
 
-    private static Czas POCZĄTEK_PRACY = new Czas(9);
-    private static Czas KONIEC_PRACY = new Czas(16);
-
-    private final Węzeł stacjaPoczątkowa;
-    private final Węzeł stacjaKońcowa;
+    private final Węzeł początek; // dolna stacja
+    private final Węzeł koniec; // górna stacja
     private final int odstępCzasowy;
     private final int maksWielkośćGrupy;
+    private final int czasPrzejazdu;
 
-    private Kolejka<Sportowiec> kolejkaDoWjazdu;
+    private final KolejkaSportowców kolejkaOczekujących;
+    private int liczbaPrzejazdów;
 
-    public Wyciąg(Węzeł stacjaPoczątkowa, Węzeł stacjaKońcowa, int odstępCzasowy, int maksWielkośćGrupy) {
-        this.stacjaPoczątkowa = stacjaPoczątkowa;
-        this.stacjaKońcowa = stacjaKońcowa;
+    public Wyciąg(int id, Węzeł początek, Węzeł koniec, int odstępCzasowy, int maksWielkośćGrupy, int czasPrzejazdu) {
+        this.początek = początek;
+        this.koniec = koniec;
         this.odstępCzasowy = odstępCzasowy;
         this.maksWielkośćGrupy = maksWielkośćGrupy;
-        kolejkaDoWjazdu = new Kolejka<Sportowiec>();
+        this.czasPrzejazdu = czasPrzejazdu;
+
+        this.kolejkaOczekujących = new KolejkaSportowców();
+        this.liczbaPrzejazdów = 0;
+    }
+
+    public void dodajDoKolejki(Sportowiec sportowiec) {
+        kolejkaOczekujących.dodaj(sportowiec);
+    }
+
+    public void zgłośPrzejazd(int liczbaOsób) {
+        liczbaPrzejazdów += liczbaOsób;
     }
 
 }

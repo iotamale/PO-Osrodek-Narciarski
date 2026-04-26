@@ -10,13 +10,15 @@ public abstract class Sportowiec {
 
     private final double wagaD;
     private final double wagaW;
+    private final double epsilon;
 
-    public Sportowiec(int poziomZaawansowania, Węzeł startowyWęzeł, Czas godzinaPrzyjazdu, double wagaD, double wagaW) {
+    public Sportowiec(int poziomZaawansowania, Węzeł startowyWęzeł, Czas godzinaPrzyjazdu, double wagaD, double wagaW, double epsilon) {
         this.poziomZaawansowania = poziomZaawansowania;
         this.startowyWęzeł = startowyWęzeł;
         this.godzinaPrzyjazdu = godzinaPrzyjazdu;
         this.wagaD = wagaD;
         this.wagaW = wagaW;
+        this.epsilon = epsilon;
     }
 
     public double łącznaAtrakcyjnośćTrasy(Trasa trasa) {

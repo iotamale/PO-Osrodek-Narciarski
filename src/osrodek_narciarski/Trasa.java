@@ -2,6 +2,7 @@ package osrodek_narciarski;
 
 public class Trasa {
 
+    private final int id;
     private final Węzeł początek;
     private final Węzeł koniec;
     private final int poziomTrudności; // 0-10
@@ -11,8 +12,9 @@ public class Trasa {
     private final double bazowaAtrakcyjność; // [0, 1]
     private int liczbaPrzejazdów;
 
-    public Trasa(Węzeł początek, Węzeł koniec, int poziomTrudności,
+    public Trasa(int id, Węzeł początek, Węzeł koniec, int poziomTrudności,
                  int czasPrzejazdu, double odpornośćNierówności, double bazowaAtrakcyjność) {
+        this.id = id;
         this.początek = początek;
         this.koniec = koniec;
         this.poziomTrudności = poziomTrudności;
@@ -20,6 +22,10 @@ public class Trasa {
         this.odpornośćNierówności = odpornośćNierówności;
         this.bazowaAtrakcyjność = bazowaAtrakcyjność;
         this.liczbaPrzejazdów = 0;
+    }
+
+    public void zgłośPrzejazd() {
+        liczbaPrzejazdów++;
     }
 
     public double atrakcyjnośćDTrasy(int pn) { // pn - poziomZaawansowaniaSportowca
