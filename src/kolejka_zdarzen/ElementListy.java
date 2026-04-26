@@ -1,5 +1,6 @@
 package kolejka_zdarzen;
 
+// zakres widoczności tylko dla pakietu
 class ElementListy {
 
     private final Zdarzenie zdarzenie;
@@ -21,8 +22,5 @@ class ElementListy {
     protected void ustawNastępny(ElementListy element) {
         następny = element;
     }
-
-
-
 
 }

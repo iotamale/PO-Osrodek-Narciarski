@@ -1,5 +1,7 @@
 package kolejka_zdarzen;
 
+import czas.Czas;
+
 public class ListowaKolejkaZdarzen implements KolejkaZdarzeń {
 
     private ElementListy głowa;
@@ -8,15 +10,18 @@ public class ListowaKolejkaZdarzen implements KolejkaZdarzeń {
         this.głowa = null;
     }
 
+    // TODO czas.czyWcześniej
     private boolean czyMniejszy(ElementListy następny, Zdarzenie noweZdarzenie) {
-        return następny.pobierzZdarzenie().pobierzCzas() <= noweZdarzenie.pobierzCzas();
+        final Czas czas = następny.pobierzZdarzenie().pobierzCzas();
+        return czas.czyWcześniej(noweZdarzenie.pobierzCzas());
     }
 
     @Override
     public void dodaj(Zdarzenie noweZdarzenie) {
         final ElementListy nowyElement = new ElementListy(noweZdarzenie);
 
-        if (głowa == null || głowa.pobierzZdarzenie().pobierzCzas() > noweZdarzenie.pobierzCzas()) {
+        // TODO czas.czyWcześniejLubRówno
+        if (głowa == null || głowa.pobierzZdarzenie().pobierzCzas().czyWcześniejLubRówno(noweZdarzenie.pobierzCzas())) {
             nowyElement.ustawNastępny(głowa);
             głowa = nowyElement;
             return;

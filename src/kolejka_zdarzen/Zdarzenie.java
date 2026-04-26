@@ -1,8 +1,10 @@
 package kolejka_zdarzen;
 
+import czas.Czas;
+
 public interface Zdarzenie {
 
-    int pobierzCzas(); // w sekundach
+    Czas pobierzCzas(); // w sekundach
 
     void wykonaj();
 
