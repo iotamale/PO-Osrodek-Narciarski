@@ -31,14 +31,15 @@ public class Parser {
         final int liczbaTras = czytnik.czytajNastępnąLiczbę();
         final Trasa[] trasy = wczytajTrasy(liczbaTras, węzły);
 
-        /* Teoretycznie można użyć tego samego parsera do wczytania potem innych danych. */
+        // Teoretycznie można użyć tego samego parsera do wczytania potem innych danych.
         if (iluSportowców > 0) {
             przygotujTablicęSportowców();
         }
         final int liczbaGrupSportowców = czytnik.czytajNastępnąLiczbę();
         wczytajSportowców(liczbaGrupSportowców, węzły);
 
-        return new DaneSymulacji(węzły, wyciągi, trasy, sportowcy);
+        // obetnijSportowców() zwraca kopie this.sportowiec obciętą do poprawnego rozmiaru.
+        return new DaneSymulacji(węzły, wyciągi, trasy, obetnijSportowców());
     }
 
     private Węzeł[] wczytajWęzły(int ile) {
@@ -112,8 +113,8 @@ public class Parser {
         sportowcy = Arrays.copyOf(sportowcy, p);
     }
 
-    private void obetnijSportowców() {
-        sportowcy = Arrays.copyOf(sportowcy, iluSportowców);
+    private Sportowiec[] obetnijSportowców() {
+        return Arrays.copyOf(sportowcy, iluSportowców);
     }
 
     private void wczytajSportowców(int ileGrup, Węzeł[] węzły) {
@@ -143,8 +144,6 @@ public class Parser {
                 iluSportowców++;
             }
         }
-
-        obetnijSportowców();    /* Obcinamy śmieci. */
     }
 
     private Scanner skanerWiersza(String wiersz) {
