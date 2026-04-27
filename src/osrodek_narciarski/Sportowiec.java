@@ -89,16 +89,6 @@ public class Sportowiec {
         return "Sportowiec nr " + String.valueOf(id);
     }
 
-    public boolean czyŚledzićSportowca() {
-        return czyŚledzić;
-    }
-
-    public void zgłośZjazd(Czas czas, Trasa trasa) {
-        if (czyŚledzić) {
-            System.out.println(czas + ": " + this + " rozpoczął zjazd przez " + trasa + ".");
-        }
-    }
-
     public void loguj(Czas czas, String komunikat) {
         if (czyŚledzić) {
             System.out.println(czas + ": " + this + " " + komunikat + ".");
