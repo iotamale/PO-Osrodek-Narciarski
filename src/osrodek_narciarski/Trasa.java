@@ -43,7 +43,7 @@ public class Trasa extends Krawędź {
 
     @Override
     public void obsłużDecyzję(Sportowiec sportowiec, Czas czas, KolejkaZdarzeń kolejka, SilnikSymulacji symulacja) {
-        sportowiec.zgłośZjazd(czas, this);
+        sportowiec.loguj(czas, "rozpoczął zjazd " + this);
         zgłośPrzejazd(1);
 
         final Czas czasKońca = czas.dodajSekundy(pobierzCzasPrzejazdu());

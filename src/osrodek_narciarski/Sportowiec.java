@@ -99,9 +99,9 @@ public class Sportowiec {
         }
     }
 
-    public void zgłosWjazd(Czas czas, Wyciąg wyciąg) {
+    public void loguj(Czas czas, String komunikat) {
         if (czyŚledzić) {
-            System.out.println(czas + ": " + this + " ustawia się w kolejce do " + wyciąg + ".");
+            System.out.println(czas + ": " + this + " " + komunikat + ".");
         }
     }
 

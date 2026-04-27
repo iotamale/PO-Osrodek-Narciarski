@@ -25,9 +25,8 @@ public abstract class ZdarzenieSportowca extends Zdarzenie {
     }
 
     protected void loguj(String komunikat) {
-        if (sportowiec.czyŚledzićSportowca()) {
-            System.out.println(pobierzCzas() + ": " + sportowiec + " " + komunikat);
-        }
+        final Czas czas = pobierzCzas();
+        sportowiec.loguj(czas, komunikat);
     }
 
 }

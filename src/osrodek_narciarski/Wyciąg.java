@@ -22,6 +22,18 @@ public class Wyciąg extends Krawędź {
         kolejkaOczekujących.dodaj(sportowiec);
     }
 
+    public int pobierzPojemność() {
+        return maksWielkośćGrupy;
+    }
+
+    public boolean czyPustaKolejka() {
+        return kolejkaOczekujących.czyPusta();
+    }
+
+    public Sportowiec weźZKolejki() {
+        return kolejkaOczekujących.pobierz();
+    }
+
     @Override
     public String toString() {
         return "Wyciąg nr " + String.valueOf(pobierzId());
@@ -29,7 +41,7 @@ public class Wyciąg extends Krawędź {
 
     @Override
     public void obsłużDecyzję(Sportowiec sportowiec, Czas czas, KolejkaZdarzeń kolejka, SilnikSymulacji symulacja) {
-        sportowiec.zgłosWjazd(czas, this);
+        sportowiec.loguj(czas, "ustawia się w kolejce do " + this);
 
         dodajDoKolejki(sportowiec); // dodajemy do kolejki WYCIĄGU
     }
