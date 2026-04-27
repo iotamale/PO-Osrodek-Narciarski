@@ -1,5 +1,9 @@
 package osrodek_narciarski;
 
+import czas.Czas;
+import kolejka_zdarzen.KolejkaZdarzeń;
+import symulacja.SilnikSymulacji;
+
 public class Wyciąg extends Krawędź {
 
     private final int odstępCzasowy;
@@ -14,8 +18,19 @@ public class Wyciąg extends Krawędź {
         this.kolejkaOczekujących = new KolejkaSportowców();
     }
 
-    public void dodajDoKolejki(Sportowiec sportowiec) {
+    private void dodajDoKolejki(Sportowiec sportowiec) {
         kolejkaOczekujących.dodaj(sportowiec);
     }
 
+    @Override
+    public String toString() {
+        return "Wyciąg nr " + String.valueOf(pobierzId());
+    }
+
+    @Override
+    public void obsłużDecyzję(Sportowiec sportowiec, Czas czas, KolejkaZdarzeń kolejka, SilnikSymulacji symulacja) {
+        sportowiec.zgłosWjazd(czas, this);
+
+        dodajDoKolejki(sportowiec); // dodajemy do kolejki WYCIĄGU
+    }
 }

@@ -1,5 +1,10 @@
 package osrodek_narciarski;
 
+import czas.Czas;
+import kolejka_zdarzen.KolejkaZdarzeń;
+import symulacja.SilnikSymulacji;
+import symulacja.ZakończenieZjazduTrasą;
+
 public class Trasa extends Krawędź {
 
     private final int poziomTrudności; // 0-10
@@ -31,4 +36,17 @@ public class Trasa extends Krawędź {
         return bazowaAtrakcyjność + (1 - bazowaAtrakcyjność) * Math.pow(odpornośćNierówności, liczbaPrzejazdów);
     }
 
+    @Override
+    public String toString() {
+        return "Trasa nr " + String.valueOf(pobierzId());
+    }
+
+    @Override
+    public void obsłużDecyzję(Sportowiec sportowiec, Czas czas, KolejkaZdarzeń kolejka, SilnikSymulacji symulacja) {
+        sportowiec.zgłośZjazd(czas, this);
+        zgłośPrzejazd(1);
+
+        final Czas czasKońca = czas.dodajSekundy(pobierzCzasPrzejazdu());
+        kolejka.dodaj(new ZakończenieZjazduTrasą(sportowiec, czasKońca, this, symulacja));
+    }
 }

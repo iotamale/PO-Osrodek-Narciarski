@@ -1,5 +1,9 @@
 package osrodek_narciarski;
 
+import czas.Czas;
+import kolejka_zdarzen.KolejkaZdarzeń;
+import symulacja.SilnikSymulacji;
+
 public abstract class Krawędź {
 
     private final int id;
@@ -16,6 +20,8 @@ public abstract class Krawędź {
         this.liczbaPrzejazdów = 0;
     }
 
+    public abstract void obsłużDecyzję(Sportowiec sportowiec, Czas czas, KolejkaZdarzeń kolejka, SilnikSymulacji symulacja);
+
     public void zgłośPrzejazd(int liczbaOsób) {
         liczbaPrzejazdów += liczbaOsób;
     }
@@ -26,6 +32,14 @@ public abstract class Krawędź {
 
     public Węzeł pobierzKoniec() {
         return koniec;
+    }
+
+    public int pobierzCzasPrzejazdu() {
+        return czasPrzejazdu;
+    }
+
+    public int pobierzId() {
+        return id;
     }
 
 }

@@ -2,6 +2,7 @@ package parser;
 
 import czas.Czas;
 import osrodek_narciarski.*;
+import symulacja.GeneratorLosowy;
 
 import java.util.Arrays;
 import java.util.Locale;
@@ -140,7 +141,7 @@ public class Parser {
 
             for (int j = 0; j < rozmiarGrupy; j++) {
                 final Czas przyjazd = godzina.dodajSekundy(j * odstęp);
-                sportowcy[iluSportowców] = new Sportowiec(zaawansowanie, start, przyjazd, wagaD, wagaW, spontaniczność, czyŚledzić);
+                sportowcy[iluSportowców] = new Sportowiec(iluSportowców, zaawansowanie, start, przyjazd, wagaD, wagaW, spontaniczność, czyŚledzić);
                 iluSportowców++;
             }
         }

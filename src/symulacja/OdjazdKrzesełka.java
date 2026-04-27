@@ -1,4 +1,4 @@
-package kolejka_zdarzen;
+package symulacja;
 
 import czas.Czas;
 import osrodek_narciarski.Wyciąg;

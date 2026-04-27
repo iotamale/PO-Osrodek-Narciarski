@@ -72,4 +72,9 @@ public class Węzeł {
     public Wyciąg[] pobierzWyciągiWychodzące() {
         return Arrays.copyOf(wyciągiWychodzące, liczbaWyciągów);
     }
+
+    @Override
+    public String toString() {
+        return "Węzeł nr " + String.valueOf(id);
+    }
 }

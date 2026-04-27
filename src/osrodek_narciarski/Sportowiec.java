@@ -5,23 +5,29 @@ import symulacja.GeneratorLosowy;
 
 public class Sportowiec {
 
+    private final int id;
     private final int poziomZaawansowania;
-    private final Węzeł startowyWęzeł;
+    private final Węzeł węzełStartowy;
     private final Czas godzinaPrzyjazdu;
 
     private final double wagaD;
     private final double wagaW;
     private final double spontaniczność;
     private final boolean czyŚledzić;
+    private Węzeł obecnyWęzeł;
 
-    public Sportowiec(int poziomZaawansowania, Węzeł startowyWęzeł, Czas godzinaPrzyjazdu, double wagaD, double wagaW, double spontaniczność, boolean czyŚledzić) {
+    public Sportowiec(
+            int id, int poziomZaawansowania, Węzeł węzełStartowy, Czas godzinaPrzyjazdu, double wagaD,
+            double wagaW, double spontaniczność, boolean czyŚledzić) {
+        this.id = id;
         this.poziomZaawansowania = poziomZaawansowania;
-        this.startowyWęzeł = startowyWęzeł;
+        this.węzełStartowy = węzełStartowy;
         this.godzinaPrzyjazdu = godzinaPrzyjazdu;
         this.wagaD = wagaD;
         this.wagaW = wagaW;
         this.spontaniczność = spontaniczność;
         this.czyŚledzić = czyŚledzić;
+        this.obecnyWęzeł = węzełStartowy;
     }
 
     private double łącznaAtrakcyjnośćTrasy(Trasa trasa) {
@@ -31,7 +37,7 @@ public class Sportowiec {
         return wagaD * d + wagaW * w;
     }
 
-    public Krawędź podejmijDecyzję(Węzeł obecnyWęzeł, GeneratorLosowy generator) {
+    public Krawędź podejmijDecyzję(GeneratorLosowy generator) {
         final Trasa[] trasyWychodzące = obecnyWęzeł.pobierzTrasyWychodzące();
         final Wyciąg[] wyciągiWychodzące = obecnyWęzeł.pobierzWyciągiWychodzące();
         final int liczbaTras = obecnyWęzeł.pobierzLiczbęTras();
@@ -76,5 +82,34 @@ public class Sportowiec {
         }
 
         return najlepszaDecyzja;
+    }
+
+    @Override
+    public String toString() {
+        return "Sportowiec nr " + String.valueOf(id);
+    }
+
+    public boolean czyŚledzićSportowca() {
+        return czyŚledzić;
+    }
+
+    public void zgłośZjazd(Czas czas, Trasa trasa) {
+        if (czyŚledzić) {
+            System.out.println(czas + ": " + this + " rozpoczął zjazd przez " + trasa + ".");
+        }
+    }
+
+    public void zgłosWjazd(Czas czas, Wyciąg wyciąg) {
+        if (czyŚledzić) {
+            System.out.println(czas + ": " + this + " ustawia się w kolejce do " + wyciąg + ".");
+        }
+    }
+
+    public void ustawObecnyWęzeł(Węzeł nowyWęzeł) {
+        obecnyWęzeł = nowyWęzeł;
+    }
+
+    public Węzeł pobierzObecnyWęzeł() {
+        return obecnyWęzeł;
     }
 }
