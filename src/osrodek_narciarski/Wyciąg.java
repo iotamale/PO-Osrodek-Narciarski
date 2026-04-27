@@ -1,7 +1,6 @@
 package osrodek_narciarski;
 
 import czas.Czas;
-import kolejka_zdarzen.KolejkaZdarzeń;
 import symulacja.SilnikSymulacji;
 
 public class Wyciąg extends Krawędź {

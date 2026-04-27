@@ -1,9 +1,7 @@
 package symulacja;
 
 import czas.Czas;
-import osrodek_narciarski.Krawędź;
 import osrodek_narciarski.Sportowiec;
-import osrodek_narciarski.Węzeł;
 
 public class PojawienieSięNaStoku extends ZdarzenieSportowca {
 

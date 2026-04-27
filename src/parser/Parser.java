@@ -2,7 +2,6 @@ package parser;
 
 import czas.Czas;
 import osrodek_narciarski.*;
-import symulacja.GeneratorLosowy;
 
 import java.util.Arrays;
 import java.util.Locale;

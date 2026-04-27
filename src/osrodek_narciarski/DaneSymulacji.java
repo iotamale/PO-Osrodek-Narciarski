@@ -14,16 +14,8 @@ public class DaneSymulacji {
         this.sportowcy = sportowcy;
     }
 
-    public Węzeł[] pobierzWęzły() {
-        return węzły;
-    }
-
     public Wyciąg[] pobierzWyciągi() {
         return wyciągi;
-    }
-
-    public Trasa[] pobierzTrasy() {
-        return trasy;
     }
 
     public Sportowiec[] pobierzSportowcy() {
