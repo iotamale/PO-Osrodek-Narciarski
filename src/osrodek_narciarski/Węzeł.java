@@ -57,4 +57,11 @@ public class Węzeł {
         wyciągiWychodzące[liczbaWyciągów++] = wyciąg;
     }
 
+    public int pobierzLiczbęTras() {
+        return liczbaTras;
+    }
+
+    public int pobierzLiczbęWyciągów() {
+        return liczbaWyciągów;
+    }
 }
