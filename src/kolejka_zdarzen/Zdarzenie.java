@@ -2,10 +2,17 @@ package kolejka_zdarzen;
 
 import czas.Czas;
 
-public interface Zdarzenie {
+public abstract class Zdarzenie {
 
-    Czas pobierzCzas();
+    private final Czas czas;
 
-    void wykonaj();
+    public Zdarzenie(Czas czas) {
+        this.czas = czas;
+    }
 
+    public Czas pobierzCzas() {
+        return czas;
+    }
+
+    public abstract void wykonaj();
 }
