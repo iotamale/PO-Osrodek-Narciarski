@@ -2,7 +2,7 @@ package osrodek_narciarski;
 
 import czas.Czas;
 
-public abstract class Sportowiec {
+public class Sportowiec {
 
     private final int poziomZaawansowania;
     private final Węzeł startowyWęzeł;
@@ -10,15 +10,17 @@ public abstract class Sportowiec {
 
     private final double wagaD;
     private final double wagaW;
-    private final double epsilon;
+    private final double spontaniczność;
+    private final boolean czyŚledzić;
 
-    public Sportowiec(int poziomZaawansowania, Węzeł startowyWęzeł, Czas godzinaPrzyjazdu, double wagaD, double wagaW, double epsilon) {
+    public Sportowiec(int poziomZaawansowania, Węzeł startowyWęzeł, Czas godzinaPrzyjazdu, double wagaD, double wagaW, double spontaniczność, boolean czyŚledzić) {
         this.poziomZaawansowania = poziomZaawansowania;
         this.startowyWęzeł = startowyWęzeł;
         this.godzinaPrzyjazdu = godzinaPrzyjazdu;
         this.wagaD = wagaD;
         this.wagaW = wagaW;
-        this.epsilon = epsilon;
+        this.spontaniczność = spontaniczność;
+        this.czyŚledzić = czyŚledzić;
     }
 
     public double łącznaAtrakcyjnośćTrasy(Trasa trasa) {

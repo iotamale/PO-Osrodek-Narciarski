@@ -8,12 +8,12 @@ public class Trasa {
     private final int poziomTrudności; // 0-10
     private final int czasPrzejazdu; // w sekundach
 
-    private final double odpornośćNierówności; // (0, 1]
     private final double bazowaAtrakcyjność; // [0, 1]
+    private final double odpornośćNierówności; // (0, 1]
     private int liczbaPrzejazdów;
 
     public Trasa(int id, Węzeł początek, Węzeł koniec, int poziomTrudności,
-                 int czasPrzejazdu, double odpornośćNierówności, double bazowaAtrakcyjność) {
+                 int czasPrzejazdu, double bazowaAtrakcyjność, double odpornośćNierówności) {
         this.id = id;
         this.początek = początek;
         this.koniec = koniec;
