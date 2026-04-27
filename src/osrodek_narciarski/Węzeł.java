@@ -64,4 +64,12 @@ public class Węzeł {
     public int pobierzLiczbęWyciągów() {
         return liczbaWyciągów;
     }
+
+    public Trasa[] pobierzTrasyWychodzące() {
+        return Arrays.copyOf(trasyWychodzące, liczbaTras);
+    }
+
+    public Wyciąg[] pobierzWyciągiWychodzące() {
+        return Arrays.copyOf(wyciągiWychodzące, liczbaWyciągów);
+    }
 }

@@ -18,4 +18,9 @@ public class GeneratorLosowy {
         return generator.nextDouble(a, b);
     }
 
+    // prawdopodobieństwo z zakresu [0, 1]
+    public boolean czyZajdzieZdarzenie(double prawdopodobieństwo) {
+        return generator.nextDouble() < prawdopodobieństwo;
+    }
+
 }

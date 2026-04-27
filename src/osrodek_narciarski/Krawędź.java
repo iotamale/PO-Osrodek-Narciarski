@@ -24,4 +24,8 @@ public abstract class Krawędź {
         return liczbaPrzejazdów;
     }
 
+    public Węzeł pobierzKoniec() {
+        return koniec;
+    }
+
 }
