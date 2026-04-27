@@ -1,6 +1,7 @@
 package kolejka_zdarzen;
 
 import czas.Czas;
+import symulacja.Zdarzenie;
 
 public class ListowaKolejkaZdarzen implements KolejkaZdarzeń {
 

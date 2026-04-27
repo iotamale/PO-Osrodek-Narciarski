@@ -1,5 +1,7 @@
 package kolejka_zdarzen;
 
+import symulacja.Zdarzenie;
+
 // zakres widoczności tylko dla pakietu
 class ElementListy {
 
