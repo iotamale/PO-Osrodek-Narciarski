@@ -10,6 +10,7 @@ public class ListowaKolejkaZdarzen implements KolejkaZdarzeń {
         this.głowa = null;
     }
 
+    // TODO opisać to
     private boolean czyMniejszy(ElementListy następny, Zdarzenie noweZdarzenie) {
         return następny.pobierzZdarzenie().pobierzCzas().czyWcześniejLubRówno(noweZdarzenie.pobierzCzas());
     }
