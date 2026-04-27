@@ -11,7 +11,6 @@ public class ListowaKolejkaZdarzen implements KolejkaZdarzeń {
         this.głowa = null;
     }
 
-    // TODO czas.czyWcześniej
     private boolean czyMniejszy(ElementListy następny, Zdarzenie noweZdarzenie) {
         return następny.pobierzZdarzenie().pobierzCzas().czyWcześniejLubRówno(noweZdarzenie.pobierzCzas());
     }
@@ -20,7 +19,6 @@ public class ListowaKolejkaZdarzen implements KolejkaZdarzeń {
     public void dodaj(Zdarzenie noweZdarzenie) {
         final ElementListy nowyElement = new ElementListy(noweZdarzenie);
 
-        // TODO czas.czyWcześniejLubRówno
         if (głowa == null || noweZdarzenie.pobierzCzas().czyWcześniej(głowa.pobierzZdarzenie().pobierzCzas())) {
             nowyElement.ustawNastępny(głowa);
             głowa = nowyElement;
