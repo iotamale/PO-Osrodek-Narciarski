@@ -4,7 +4,7 @@ import czas.Czas;
 
 public interface Zdarzenie {
 
-    Czas pobierzCzas(); // w sekundach
+    Czas pobierzCzas();
 
     void wykonaj();
 

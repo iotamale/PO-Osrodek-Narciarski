@@ -10,6 +10,7 @@ public class Main {
         final Czytnik czytnik = new Czytnik(System.in);
         final Parser parser = new Parser(czytnik);
         final DaneSymulacji daneSymulacji = parser.wczytaj();
+        final GeneratorLosowy generator = new GeneratorLosowy();
     }
 
 }
