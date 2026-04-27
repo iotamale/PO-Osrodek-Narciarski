@@ -11,6 +11,9 @@ public class Main {
         final GeneratorLosowy generator = new GeneratorLosowy();
         final Parser parser = new Parser(czytnik);
         final DaneSymulacji daneSymulacji = parser.wczytaj();
+
+        final SilnikSymulacji symulacja = new SilnikSymulacji(generator, daneSymulacji);
+        symulacja.rozpcznij();
     }
 
 }

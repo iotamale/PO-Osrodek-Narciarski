@@ -14,7 +14,7 @@ public class PojawienieSięNaStoku extends ZdarzenieSportowca {
     @Override
     public void wykonaj() {
         final Sportowiec sportowiec = pobierzSportowca();
-        loguj("pojawił się na stoku w " + sportowiec.pobierzObecnyWęzeł() + ".");
+        loguj("pojawił się na stoku w " + sportowiec.pobierzObecnyWęzeł());
 
         final SilnikSymulacji symulacja = pobierzSymulację();
         final Czas czas = pobierzCzas();

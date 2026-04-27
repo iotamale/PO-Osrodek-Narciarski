@@ -3,19 +3,53 @@ package symulacja;
 import czas.Czas;
 import kolejka_zdarzen.KolejkaZdarzeń;
 import kolejka_zdarzen.ListowaKolejkaZdarzen;
+import osrodek_narciarski.DaneSymulacji;
 import osrodek_narciarski.Krawędź;
 import osrodek_narciarski.Sportowiec;
+import osrodek_narciarski.Wyciąg;
 
 public class SilnikSymulacji {
 
+    private static final Czas POCZĄTEK_SYMULACJI = new Czas("9:00:00");
     private static final Czas KONIEC_SYMULACJI = new Czas("15:00:00");
 
     private final GeneratorLosowy generator;
     private final KolejkaZdarzeń kolejka;
+    private final DaneSymulacji daneSymulacji;
 
-    public SilnikSymulacji(GeneratorLosowy generator) {
+    public SilnikSymulacji(GeneratorLosowy generator, DaneSymulacji daneSymulacji) {
         this.generator = generator;
+        this.daneSymulacji = daneSymulacji;
         this.kolejka = new ListowaKolejkaZdarzen();
+    }
+
+    private void inicjujPracęWyciągów() {
+        final Wyciąg[] wyciągi = daneSymulacji.pobierzWyciągi();
+
+        for (final Wyciąg wyciąg : wyciągi) {
+            final OdjazdKrzesełka zdarzenie = new OdjazdKrzesełka(wyciąg, POCZĄTEK_SYMULACJI, this);
+            dodajZdarzenieDoKolejki(zdarzenie);
+        }
+    }
+
+    private void inicjujSportowców() {
+        final Sportowiec[] sportowcy = daneSymulacji.pobierzSportowcy();
+
+        for (final Sportowiec sportowiec : sportowcy) {
+            final Czas czasPrzybycia = sportowiec.pobierzCzasPrzyjazdu();
+            final PojawienieSięNaStoku wydarzenie = new PojawienieSięNaStoku(sportowiec, czasPrzybycia, this);
+            dodajZdarzenieDoKolejki(wydarzenie);
+        }
+    }
+
+    public void rozpcznij() {
+        inicjujSportowców();
+        inicjujPracęWyciągów();
+
+        while (!kolejka.czyPusta()) {
+            final Zdarzenie zdarzenie = kolejka.pobierzPierwsze();
+            zdarzenie.wykonaj();
+        }
     }
 
     public void obsłóżDecyzjęSportowca(Sportowiec sportowiec, Czas czas) {

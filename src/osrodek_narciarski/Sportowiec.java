@@ -102,4 +102,8 @@ public class Sportowiec {
     public Węzeł pobierzObecnyWęzeł() {
         return obecnyWęzeł;
     }
+
+    public Czas pobierzCzasPrzyjazdu() {
+        return godzinaPrzyjazdu;
+    }
 }
