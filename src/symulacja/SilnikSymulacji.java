@@ -24,7 +24,11 @@ public class SilnikSymulacji {
         }
 
         final Krawędź wybór = sportowiec.podejmijDecyzję(generator);
-        wybór.obsłużDecyzję(sportowiec, czas, kolejka, this);
+        wybór.obsłużDecyzję(sportowiec, czas, this);
+    }
+
+    public void dodajZdarzenieDoKolejki(Zdarzenie zdarzenie) {
+        kolejka.dodaj(zdarzenie);
     }
 
 }

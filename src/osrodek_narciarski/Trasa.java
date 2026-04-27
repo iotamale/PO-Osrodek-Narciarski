@@ -42,11 +42,11 @@ public class Trasa extends Krawędź {
     }
 
     @Override
-    public void obsłużDecyzję(Sportowiec sportowiec, Czas czas, KolejkaZdarzeń kolejka, SilnikSymulacji symulacja) {
+    public void obsłużDecyzję(Sportowiec sportowiec, Czas czas, SilnikSymulacji symulacja) {
         sportowiec.loguj(czas, "rozpoczął zjazd " + this);
         zgłośPrzejazd(1);
 
         final Czas czasKońca = czas.dodajSekundy(pobierzCzasPrzejazdu());
-        kolejka.dodaj(new ZakończenieZjazduTrasą(sportowiec, czasKońca, this, symulacja));
+        symulacja.dodajZdarzenieDoKolejki(new ZakończenieZjazduTrasą(sportowiec, czasKońca, this, symulacja));
     }
 }

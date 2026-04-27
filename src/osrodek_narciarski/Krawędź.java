@@ -20,7 +20,7 @@ public abstract class Krawędź {
         this.liczbaPrzejazdów = 0;
     }
 
-    public abstract void obsłużDecyzję(Sportowiec sportowiec, Czas czas, KolejkaZdarzeń kolejka, SilnikSymulacji symulacja);
+    public abstract void obsłużDecyzję(Sportowiec sportowiec, Czas czas, SilnikSymulacji symulacja);
 
     public void zgłośPrzejazd(int liczbaOsób) {
         liczbaPrzejazdów += liczbaOsób;

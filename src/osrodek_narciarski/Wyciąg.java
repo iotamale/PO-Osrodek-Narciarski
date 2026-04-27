@@ -26,6 +26,10 @@ public class Wyciąg extends Krawędź {
         return maksWielkośćGrupy;
     }
 
+    public int pobierzOdstępCzasowy() {
+        return odstępCzasowy;
+    }
+
     public boolean czyPustaKolejka() {
         return kolejkaOczekujących.czyPusta();
     }
@@ -40,7 +44,7 @@ public class Wyciąg extends Krawędź {
     }
 
     @Override
-    public void obsłużDecyzję(Sportowiec sportowiec, Czas czas, KolejkaZdarzeń kolejka, SilnikSymulacji symulacja) {
+    public void obsłużDecyzję(Sportowiec sportowiec, Czas czas, SilnikSymulacji symulacja) {
         sportowiec.loguj(czas, "ustawia się w kolejce do " + this);
 
         dodajDoKolejki(sportowiec); // dodajemy do kolejki WYCIĄGU
