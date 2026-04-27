@@ -40,11 +40,6 @@ public class Czas {
         return String.valueOf(liczba);
     }
 
-    // TODO pewnie można usunąć
-    public int pobierzSekundy() {
-        return sekundy;
-    }
-
     @Override
     public String toString() {
         final int hh = sekundy / GODZINA;
