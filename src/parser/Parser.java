@@ -18,8 +18,7 @@ public class Parser {
 
     public Parser(Czytnik czytnik) {
         this.czytnik = czytnik;
-        sportowcy = new Sportowiec[POCZĄTKOWY_ROZMIAR_TAB];
-        iluSportowców = 0;
+        przygotujTablicęSportowców();
     }
 
     public DaneSymulacji wczytaj() {
@@ -32,6 +31,10 @@ public class Parser {
         final int liczbaTras = czytnik.czytajNastępnąLiczbę();
         final Trasa[] trasy = wczytajTrasy(liczbaTras, węzły);
 
+        /* Teoretycznie można użyć tego samego parsera do wczytania potem innych danych. */
+        if (iluSportowców > 0) {
+            przygotujTablicęSportowców();
+        }
         final int liczbaGrupSportowców = czytnik.czytajNastępnąLiczbę();
         wczytajSportowców(liczbaGrupSportowców, węzły);
 
@@ -94,10 +97,15 @@ public class Parser {
         return trasy;
     }
 
-    private void powiększSportowców(int ileWymagam) {
+    private void przygotujTablicęSportowców() {
+        sportowcy = new Sportowiec[POCZĄTKOWY_ROZMIAR_TAB];
+        iluSportowców = 0;
+    }
+
+    private void powiększSportowców(int ilePotrzeba) {
         int p = sportowcy.length;
 
-        while (p < ileWymagam) {
+        while (p < ilePotrzeba) {
             p *= MNOŻNIK_TAB;
         }
 
@@ -136,7 +144,7 @@ public class Parser {
             }
         }
 
-        obetnijSportowców();
+        obetnijSportowców();    /* Obcinamy śmieci. */
     }
 
     private Scanner skanerWiersza(String wiersz) {
