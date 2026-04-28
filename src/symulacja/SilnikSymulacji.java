@@ -78,8 +78,6 @@ public class SilnikSymulacji {
         }
 
         System.out.println("--------------- KONIEC STATYSTYK ---------------");
-
-        // TODO dokończyć
         // TODO wyjątki wszędzie
     }
 
