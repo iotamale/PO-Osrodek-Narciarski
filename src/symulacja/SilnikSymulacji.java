@@ -3,10 +3,7 @@ package symulacja;
 import czas.Czas;
 import kolejka_zdarzen.KolejkaZdarzeń;
 import kolejka_zdarzen.ListowaKolejkaZdarzen;
-import osrodek_narciarski.DaneSymulacji;
-import osrodek_narciarski.Krawędź;
-import osrodek_narciarski.Sportowiec;
-import osrodek_narciarski.Wyciąg;
+import osrodek_narciarski.*;
 
 public class SilnikSymulacji {
 
@@ -66,13 +63,21 @@ public class SilnikSymulacji {
     }
 
     public void wypiszStatystyki() {
-        System.out.println("------STATYSTYKI KOŃCOWE (po 15:00:00) ------");
+        System.out.println();
+        System.out.println("-------- STATYSTYKI KOŃCOWE (po 15:00:00) --------");
+
+        System.out.println("Trasy:");
+        for (final Trasa trasa : daneSymulacji.pobierzTrasy()) {
+            System.out.println(trasa + " została przejechana " + trasa.pobierzLiczbęPrzejazdów() + " razy.");
+        }
 
         System.out.println();
         System.out.println("Wyciągi:");
         for (final Wyciąg wyciąg : daneSymulacji.pobierzWyciągi()) {
-            System.out.println(wyciąg + " przewiózł łącznie " + wyciąg.pobierzLiczbęPrzejazdów() + " osób.");
+            System.out.println(wyciąg + " przewiózł łącznie " + wyciąg.pobierzLiczbęPrzejazdów() + " pasażerów.");
         }
+
+        System.out.println("--------------- KONIEC STATYSTYK ---------------");
 
         // TODO dokończyć
         // TODO wyjątki wszędzie

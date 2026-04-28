@@ -1,5 +1,7 @@
 package osrodek_narciarski;
 
+import java.util.Arrays;
+
 public class DaneSymulacji {
 
     private final Węzeł[] węzły;
@@ -15,10 +17,14 @@ public class DaneSymulacji {
     }
 
     public Wyciąg[] pobierzWyciągi() {
-        return wyciągi;
+        return Arrays.copyOf(wyciągi, wyciągi.length);
     }
 
     public Sportowiec[] pobierzSportowcy() {
-        return sportowcy;
+        return Arrays.copyOf(sportowcy, sportowcy.length);
+    }
+
+    public Trasa[] pobierzTrasy() {
+        return Arrays.copyOf(trasy, trasy.length);
     }
 }
