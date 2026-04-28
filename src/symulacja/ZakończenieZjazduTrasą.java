@@ -15,7 +15,7 @@ public class ZakończenieZjazduTrasą extends ZdarzenieSportowca {
 
     @Override
     public void wykonaj() {
-        loguj("zakończył zjazd " + trasa + ".");
+        loguj("zakończył zjazd " + trasa);
 
         final Sportowiec sportowiec = pobierzSportowca();
         sportowiec.ustawObecnyWęzeł(trasa.pobierzKoniec());

@@ -5,7 +5,7 @@ import symulacja.SilnikSymulacji;
 
 public class Wyciąg extends Krawędź {
 
-    private final int odstępCzasowy;
+    private final int odstępCzasowy; // TODO korzystamy z czas?
     private final int maksWielkośćGrupy;
     private final KolejkaSportowców kolejkaOczekujących;
 

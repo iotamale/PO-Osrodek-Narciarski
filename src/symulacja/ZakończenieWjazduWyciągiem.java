@@ -16,7 +16,7 @@ public class ZakończenieWjazduWyciągiem extends ZdarzenieSportowca {
 
     @Override
     public void wykonaj() {
-        loguj("schodzi z " + wyciąg + ".");
+        loguj("schodzi z " + wyciąg);
 
         final Sportowiec sportowiec = pobierzSportowca();
         final Węzeł stacja = wyciąg.pobierzKoniec();
