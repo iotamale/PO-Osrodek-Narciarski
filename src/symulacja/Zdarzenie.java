@@ -6,7 +6,7 @@ public abstract class Zdarzenie {
 
     private final Czas czas;
 
-    public Zdarzenie(Czas czas) {
+    protected Zdarzenie(Czas czas) {
         this.czas = czas;
     }
 

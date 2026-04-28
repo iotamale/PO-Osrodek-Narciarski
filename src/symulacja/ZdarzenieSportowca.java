@@ -8,7 +8,7 @@ public abstract class ZdarzenieSportowca extends Zdarzenie {
     private final Sportowiec sportowiec;
     private final SilnikSymulacji symulacja;
 
-    public ZdarzenieSportowca(Sportowiec sportowiec, Czas czas, SilnikSymulacji symulacja) {
+    protected ZdarzenieSportowca(Sportowiec sportowiec, Czas czas, SilnikSymulacji symulacja) {
         super(czas);
         this.sportowiec = sportowiec;
         this.symulacja = symulacja;
@@ -16,11 +16,11 @@ public abstract class ZdarzenieSportowca extends Zdarzenie {
 
     public abstract void wykonaj();
 
-    public Sportowiec pobierzSportowca() {
+    protected Sportowiec pobierzSportowca() {
         return sportowiec;
     }
 
-    public SilnikSymulacji pobierzSymulację() {
+    protected SilnikSymulacji pobierzSymulację() {
         return symulacja;
     }
 

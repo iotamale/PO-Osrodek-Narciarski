@@ -52,7 +52,7 @@ public class SilnikSymulacji {
         }
     }
 
-    public void obsłóżDecyzjęSportowca(Sportowiec sportowiec, Czas czas) {
+    protected void obsłóżDecyzjęSportowca(Sportowiec sportowiec, Czas czas) {
         if (!czas.czyWcześniej(KONIEC_SYMULACJI)) {
             return;
         }

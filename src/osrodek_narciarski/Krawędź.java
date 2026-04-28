@@ -11,7 +11,7 @@ public abstract class Krawędź {
     private final int czasPrzejazdu; // w sekundach
     private int liczbaPrzejazdów;
 
-    public Krawędź(int id, Węzeł początek, Węzeł koniec, int czasPrzejazdu) {
+    protected Krawędź(int id, Węzeł początek, Węzeł koniec, int czasPrzejazdu) {
         this.id = id;
         this.początek = początek;
         this.koniec = koniec;
