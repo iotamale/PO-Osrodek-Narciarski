@@ -20,10 +20,9 @@ public class ZakończenieWjazduWyciągiem extends ZdarzenieSportowca {
 
         final Sportowiec sportowiec = pobierzSportowca();
         final Węzeł stacja = wyciąg.pobierzKoniec();
-        sportowiec.ustawObecnyWęzeł(stacja);
 
         final SilnikSymulacji symulacja = pobierzSymulację();
         final Czas czas = pobierzCzas();
-        symulacja.obsłóżDecyzjęSportowca(sportowiec, czas);
+        symulacja.obsłóżDecyzjęSportowca(sportowiec, czas, stacja);
     }
 }

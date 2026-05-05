@@ -3,6 +3,7 @@ package symulacja;
 import czas.Czas;
 import osrodek_narciarski.Sportowiec;
 import osrodek_narciarski.Trasa;
+import osrodek_narciarski.Węzeł;
 
 public class ZakończenieZjazduTrasą extends ZdarzenieSportowca {
 
@@ -18,10 +19,10 @@ public class ZakończenieZjazduTrasą extends ZdarzenieSportowca {
         loguj("zakończył zjazd " + trasa);
 
         final Sportowiec sportowiec = pobierzSportowca();
-        sportowiec.ustawObecnyWęzeł(trasa.pobierzKoniec());
-
+        final Węzeł nowyObecny = trasa.pobierzKoniec();
         final SilnikSymulacji symulacja = pobierzSymulację();
-        symulacja.obsłóżDecyzjęSportowca(sportowiec, pobierzCzas());
+
+        symulacja.obsłóżDecyzjęSportowca(sportowiec, pobierzCzas(), nowyObecny);
     }
 
 }

@@ -49,12 +49,12 @@ public class SilnikSymulacji {
         }
     }
 
-    protected void obsłóżDecyzjęSportowca(Sportowiec sportowiec, Czas czas) {
+    protected void obsłóżDecyzjęSportowca(Sportowiec sportowiec, Czas czas, Węzeł obecnyWęzeł) {
         if (!czas.czyWcześniej(KONIEC_SYMULACJI)) {
             return;
         }
 
-        final Krawędź wybór = sportowiec.podejmijDecyzję(generator);
+        final Krawędź wybór = sportowiec.podejmijDecyzję(generator, obecnyWęzeł);
         wybór.obsłużDecyzję(sportowiec, czas, this);
     }
 

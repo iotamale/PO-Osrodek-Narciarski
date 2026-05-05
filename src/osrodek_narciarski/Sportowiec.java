@@ -14,7 +14,6 @@ public class Sportowiec {
     private final double wagaW;
     private final double spontaniczność;
     private final boolean czyŚledzić;
-    private Węzeł obecnyWęzeł;
 
     public Sportowiec(
             int id, int poziomZaawansowania, Węzeł węzełStartowy, Czas godzinaPrzyjazdu, double wagaD,
@@ -27,7 +26,6 @@ public class Sportowiec {
         this.wagaW = wagaW;
         this.spontaniczność = spontaniczność;
         this.czyŚledzić = czyŚledzić;
-        this.obecnyWęzeł = węzełStartowy;
     }
 
     private double łącznaAtrakcyjnośćTrasy(Trasa trasa) {
@@ -37,7 +35,7 @@ public class Sportowiec {
         return wagaD * d + wagaW * w;
     }
 
-    public Krawędź podejmijDecyzję(GeneratorLosowy generator) {
+    public Krawędź podejmijDecyzję(GeneratorLosowy generator, Węzeł obecnyWęzeł) {
         final Trasa[] trasyWychodzące = obecnyWęzeł.pobierzTrasyWychodzące();
         final Wyciąg[] wyciągiWychodzące = obecnyWęzeł.pobierzWyciągiWychodzące();
         final int liczbaTras = obecnyWęzeł.pobierzLiczbęTras();
@@ -47,6 +45,7 @@ public class Sportowiec {
         final boolean czySpontaniczna = generator.czyZajdzieZdarzenie(spontaniczność);
 
         // Wybór spontaniczny
+        // TODO czy losować?
         if (czySpontaniczna) {
             final int wybór = generator.losujInt(0, sumaOpcji);
             if (wybór < liczbaTras) {
@@ -95,12 +94,8 @@ public class Sportowiec {
         }
     }
 
-    public void ustawObecnyWęzeł(Węzeł nowyWęzeł) {
-        obecnyWęzeł = nowyWęzeł;
-    }
-
-    public Węzeł pobierzObecnyWęzeł() {
-        return obecnyWęzeł;
+    public Węzeł pobierzWęzełStartowy() {
+        return węzełStartowy;
     }
 
     public Czas pobierzCzasPrzyjazdu() {
