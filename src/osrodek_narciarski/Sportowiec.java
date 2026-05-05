@@ -45,7 +45,6 @@ public class Sportowiec {
         final boolean czySpontaniczna = generator.czyZajdzieZdarzenie(spontaniczność);
 
         // Wybór spontaniczny
-        // TODO czy losować?
         if (czySpontaniczna) {
             final int wybór = generator.losujInt(0, sumaOpcji);
             if (wybór < liczbaTras) {

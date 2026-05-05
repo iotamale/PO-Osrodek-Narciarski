@@ -7,7 +7,6 @@ import osrodek_narciarski.Wyciąg;
 public class OdjazdKrzesełka extends ZdarzenieWyciągu {
 
     private static final Czas KONIEC_SYMULACJI = new Czas("15:00:00");
-    // TODO czy mozna tworzyc publiczne statycznie zmienne?
 
     public OdjazdKrzesełka(Wyciąg wyciąg, Czas czas, SilnikSymulacji symulacja) {
         super(wyciąg, czas, symulacja);
