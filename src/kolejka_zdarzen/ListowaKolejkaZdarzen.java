@@ -10,7 +10,6 @@ public class ListowaKolejkaZdarzen implements KolejkaZdarzeń {
         this.głowa = null;
     }
 
-    // TODO opisać to
     private boolean czyMniejszy(ElementListy następny, Zdarzenie noweZdarzenie) {
         return następny.pobierzZdarzenie().pobierzCzas().czyWcześniejLubRówno(noweZdarzenie.pobierzCzas());
     }
@@ -35,9 +34,9 @@ public class ListowaKolejkaZdarzen implements KolejkaZdarzeń {
     }
 
     @Override
-    public Zdarzenie pobierzPierwsze() {
+    public Zdarzenie pobierzPierwsze() throws PustaKolejkaZdarzeń {
         if (czyPusta()) {
-            throw new IllegalStateException("Próba pobrania zdarzenia z pustej kolejki!");
+            throw new PustaKolejkaZdarzeń();
         }
 
         final Zdarzenie pierwsze = głowa.pobierzZdarzenie();

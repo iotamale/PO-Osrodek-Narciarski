@@ -28,7 +28,7 @@ public class Czytnik {
             }
         }
 
-        throw new IllegalStateException("Niespodziewany koniec pliku!");
+        return "";
     }
 
     public int czytajNastępnąLiczbę() {

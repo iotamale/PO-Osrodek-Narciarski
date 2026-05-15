@@ -44,6 +44,7 @@ public class SilnikSymulacji {
         inicjujPracęWyciągów();
 
         while (!kolejka.czyPusta()) {
+            // nie zamieściłem tego w try-catch, ponieważ warunek pętli gwarantuje niepustość kolejki.
             final Zdarzenie zdarzenie = kolejka.pobierzPierwsze();
             zdarzenie.wykonaj();
         }
@@ -78,7 +79,6 @@ public class SilnikSymulacji {
         }
 
         System.out.println("--------------- KONIEC STATYSTYK ---------------");
-        // TODO wyjątki wszędzie
     }
 
 }

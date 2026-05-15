@@ -4,24 +4,37 @@ public class Czas {
 
     private static final int MINUTA = 60;
     private static final int GODZINA = 60 * MINUTA;
+    private static final int DOBA = 24 * GODZINA;
 
     private final int sekundy; // sekundy od północy
 
-    public Czas(int sekundy) {
-        this.sekundy = sekundy;
+    public Czas(int sekundy) throws UjemnyCzas {
+        if (sekundy < 0) {
+            throw new UjemnyCzas();
+        }
+        this.sekundy = sekundy % DOBA;
     }
 
-    public Czas(String czasStr) {
+    public Czas(String czasStr) throws UjemnyCzas {
         final String[] części = czasStr.split(":");
         final int godziny = Integer.parseInt(części[0]);
         final int minuty = Integer.parseInt(części[1]);
         final int sekundy = Integer.parseInt(części[2]);
 
-        this.sekundy = godziny * GODZINA + minuty * MINUTA + sekundy;
+        if (godziny < 0 || minuty < 0 || sekundy < 0) {
+            throw new UjemnyCzas();
+        }
+
+        this.sekundy = (godziny * GODZINA + minuty * MINUTA + sekundy) % DOBA;
     }
 
-    public Czas dodajSekundy(int ile) {
-        return new Czas(this.sekundy + ile);
+    public Czas dodajSekundy(int ile) throws UjemnyCzas {
+        if (this.sekundy + ile < 0) {
+            throw new UjemnyCzas();
+        }
+
+        final int nowyCzas = (this.sekundy + ile) % DOBA;
+        return new Czas(nowyCzas);
     }
 
     public boolean czyWcześniej(Czas inny) {

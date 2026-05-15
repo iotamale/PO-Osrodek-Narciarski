@@ -41,6 +41,12 @@ public class Sportowiec {
         final int liczbaTras = obecnyWęzeł.pobierzLiczbęTras();
         final int liczbaWyciągów = obecnyWęzeł.pobierzLiczbęWyciągów();
 
+        // WYJĄTEK: Skoro nie ma tras wychodząych z danego węzla,
+        // to jedziemy dow. wyciągiem. [wniosek z forum]
+        if (liczbaTras == 0) {
+            return wyciągiWychodzące[0];
+        }
+
         final int sumaOpcji = liczbaTras + liczbaWyciągów;
         final boolean czySpontaniczna = generator.czyZajdzieZdarzenie(spontaniczność);
 

@@ -6,7 +6,7 @@ public interface KolejkaZdarzeń {
 
     void dodaj(Zdarzenie zdarzenie);
 
-    Zdarzenie pobierzPierwsze();
+    Zdarzenie pobierzPierwsze() throws PustaKolejkaZdarzeń;
 
     boolean czyPusta();
 

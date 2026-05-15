@@ -1,6 +1,7 @@
 package osrodek_narciarski;
 
 import czas.Czas;
+import kolejka_zdarzen.PustaKolejkaZdarzeń;
 import symulacja.SilnikSymulacji;
 
 public class Wyciąg extends Krawędź {
@@ -33,8 +34,12 @@ public class Wyciąg extends Krawędź {
         return kolejkaOczekujących.czyPusta();
     }
 
-    public Sportowiec weźZKolejki() {
-        return kolejkaOczekujących.pobierz();
+    public Sportowiec weźZKolejki() throws PustaKolejkaSportowców {
+        try {
+            return kolejkaOczekujących.pobierz();
+        } catch (PustaKolejkaSportowców e) {
+            throw new AssertionError(e);
+        }
     }
 
     @Override

@@ -1,5 +1,7 @@
 package osrodek_narciarski;
 
+import kolejka_zdarzen.PustaKolejkaZdarzeń;
+
 public class KolejkaSportowców {
 
     private static final int POCZĄTKOWY_ROZMIAR_BUFORA = 16;
@@ -37,9 +39,9 @@ public class KolejkaSportowców {
         rozmiar++;
     }
 
-    public Sportowiec pobierz() {
+    public Sportowiec pobierz() throws PustaKolejkaSportowców {
         if (czyPusta()) {
-            throw new IllegalStateException("Próba pobrania sportowca z pustej kolejki.");
+            throw new PustaKolejkaSportowców();
         }
 
         final Sportowiec pobrany = bufor[początek];
