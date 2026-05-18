@@ -14,7 +14,8 @@ public class Main {
 
         final SilnikSymulacji symulacja = new SilnikSymulacji(generator, daneSymulacji);
         symulacja.rozpcznij();
-        symulacja.wypiszStatystyki();
+        final StatystykiKońcowe statystyki = symulacja.wygenerujStatystyki();
+        statystyki.wypisz();
 
         czytnik.zamknij();
     }

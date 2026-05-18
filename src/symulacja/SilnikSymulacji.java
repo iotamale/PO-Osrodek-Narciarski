@@ -63,22 +63,8 @@ public class SilnikSymulacji {
         kolejka.dodaj(zdarzenie);
     }
 
-    public void wypiszStatystyki() {
-        System.out.println();
-        System.out.println("-------- STATYSTYKI KOŃCOWE (po 15:00:00) --------");
-
-        System.out.println("Trasy:");
-        for (final Trasa trasa : daneSymulacji.pobierzTrasy()) {
-            System.out.println(trasa + " została przejechana " + trasa.pobierzLiczbęPrzejazdów() + " razy.");
-        }
-
-        System.out.println();
-        System.out.println("Wyciągi:");
-        for (final Wyciąg wyciąg : daneSymulacji.pobierzWyciągi()) {
-            System.out.println(wyciąg + " przewiózł łącznie " + wyciąg.pobierzLiczbęPrzejazdów() + " pasażerów.");
-        }
-
-        System.out.println("--------------- KONIEC STATYSTYK ---------------");
+    public StatystykiKońcowe wygenerujStatystyki() {
+        return new StatystykiKońcowe(daneSymulacji);
     }
 
 }
